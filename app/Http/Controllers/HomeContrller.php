@@ -80,5 +80,17 @@ class HomeContrller extends Controller
         $this->hocsinh->deleteHocSinh($id);
         return redirect()->route('hocsinhs.home')->with('msg', 'Xóa học sinh thành công');
     }
-    
+    //Search
+    public function searchHocSinh(Request $request){
+        $search = $request->search;
+        $hocSinhList = $this->hocsinh->searchHocSinh($search);
+        return view('hocsinhs.index',compact('hocSinhList'));
+    }
+    //Xem ket qua
+    public function ketquaHocSinh(Request $request){
+        $id_hocsinh = $request->id;
+        $ketquas= $this->hocsinh->ketquaHocSinh($id_hocsinh);
+        $hocsinh = $this->hocsinh->getHocSinhByID($id_hocsinh);
+        return view('hocsinhs.ketqua',compact('ketquas','hocsinh'));
+    }
 }

@@ -14,6 +14,10 @@
     </head>
     <body>
         <h1>Danh Sách Học Sinh</h1>
+        <form action="{{route('hocsinhs.search')}}" method="get">
+            <input type="text" name="search" value="{{ old('search') }}" placeholder="Nhập từ khóa tìm kiếm" >
+            <input type="submit" value="Tìm kiếm">
+        </form>
         @if(session('msg'))
         <div>{{session('msg')}}</div>
         @endif

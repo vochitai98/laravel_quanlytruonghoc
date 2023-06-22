@@ -31,4 +31,12 @@ class HocSinhs extends Model
         $hocsinh=DB::table('hocsinhs')->where('id','=',$id)->get();
         return $hocsinh;
     }
+    public function searchHocSinh($search){
+        $hocsinh=DB::table('hocsinhs')->where('name','like','%'.$search.'%')->OrWhere('id','=',$search)->get();
+        return $hocsinh;
+    }
+    public function ketquaHocSinh($id){
+        $ketquas=DB::table('ketquas')->select('*',DB::raw('(diemmieng+diem15phut+diem1tiet*2+diemhocky*3)/7 AS diemtrungbinh'))->where('id_hocsinh','=',$id)->get();
+        return $ketquas;
+    }
 }

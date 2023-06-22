@@ -28,4 +28,7 @@ Route::prefix('hocsinhs')->group(function(){
     Route::post('/update',[HomeContrller::class,'postUpdateHocSinh'])->name('hocsinhs.updatepost');
     //get delete
     Route::get('/delete/{id}',[HomeContrller::class,'deleteHocSinh'])->name('hocsinhs.delete');
+    //Search
+    Route::get('/search',[HomeContrller::class,'searchHocSinh'])->name('hocsinhs.search');
+    Route::get('/ketqua/{id}',[HomeContrller::class,'ketquaHocSinh'])->name('hocsinhs.ketqua');
 });
