@@ -37,22 +37,6 @@
     @error('sdt')
     <span style = "color:red">{{$message}}</span>
     @enderror
-    <div>
-    <label for="lop">Lớp:</label>
-    @endforeach
-    <select name="id_lop">
-        @foreach($lopList as $lop)
-        @if($lop->id===$hocsinh->id_lop)
-        <option value="{{$lop->id}}">{{$lop->name}}</option>
-        @endif
-        @endforeach
-        @foreach($lopList as $lop)
-        @if($lop->id != $hocsinh->id_lop)
-        <option value="{{$lop->id}}">{{$lop->name}}</option>
-        @endif
-        @endforeach
-    </select>
-    </div>
 
     <button type="submit">Submit</button>
     <button type="button"><a href="{{route('hocsinhs.home')}}">Back</a></button>

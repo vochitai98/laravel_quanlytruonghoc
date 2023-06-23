@@ -14,6 +14,10 @@ class HomeContrller extends Controller
         $this->lops = new Lops();
         $this->hocsinh = new HocSinhs();
     }
+
+    public function home(){
+        return view('welcome');
+    }
     public function index(){
         $hocSinhList = $this->hocsinh->getAllHocSinh();
         return view('hocsinhs.index',compact('hocSinhList'));

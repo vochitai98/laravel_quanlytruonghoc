@@ -39,4 +39,5 @@ class HocSinhs extends Model
         $ketquas=DB::table('ketquas')->select('*',DB::raw('(diemmieng+diem15phut+diem1tiet*2+diemhocky*3)/7 AS diemtrungbinh'))->where('id_hocsinh','=',$id)->get();
         return $ketquas;
     }
+    
 }

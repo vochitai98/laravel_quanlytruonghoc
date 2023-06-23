@@ -7,45 +7,47 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Danh Sach Hoc Sinh</title>
+        <title>Danh Sach Giao Vien</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
     </head>
     <body>
-        <h1>Danh Sách Học Sinh</h1>
-        <form action="{{route('hocsinhs.search')}}" method="get">
-            <input type="text" name="search" value="{{ old('search') }}" placeholder="Nhập từ khóa tìm kiếm" >
+        <h1>Danh Sách Giáo Viên</h1>
+        <form action="#" method="get">
+            <input type="text" name="search" value="" placeholder="Nhập từ khóa tìm kiếm" >
             <input type="submit" value="Tìm kiếm">
         </form>
         @if(session('msg'))
         <div>{{session('msg')}}</div>
         @endif
-        <a href="{{ route('hocsinhs.add') }}"><button style="background-color:green">Add HocSinh</button></a>
+        <a href="#"><button style="background-color:green">Add Giáo Viên</button></a>
         <table border=1  style = "text-align:Left ;width:100%">
             <tr width = 150px>
-                <th rowspan="1"style="width: 200px;">MSSV</th>
+                <th rowspan="1"style="width: 200px;">Mã giáo viên</th>
                 <th rowspan="1"style="width: 200px;">Tên học sinh</th>
-                <th rowspan="1"style="width: 200px;">Tên lớp</th>
-                <th rowspan="1"style="width: 200px;">Email</th>
-                <th rowspan="1"style="width: 200px;">SDT</th>
+                <th rowspan="1"style="width: 200px;">Chức vụ</th>
                 <th colspan="3"style="width: 200px;text-align:center">Tùy Chọn</th>
             </tr>
             
-            @foreach($hocSinhList as $hs)
+            @foreach($giaoVienList as $gv)
             <tr>
-                <td>{{$hs->id}}</td>
-                <td>{{$hs->name}}</td>
-                <td>{{$hs->id_lop}}</td>
-                <td>{{$hs->email}}</td>
-                <td>{{$hs->sdt}}</td>
+                <td>{{$gv->id}}</td>
+                <td>{{$gv->name}}</td>
+                <td>{{$gv->chucvu}}</td>
                 <td>
-                <a href="{{route('hocsinhs.update',['id' => $hs->id])}}">
-                        <button style="background-color:yellow">Cập Nhật</button>
+                <a href="{{route('giaoviens.listhocsinh',['id'=>$gv->id])}}">
+                        <button style="background-color:yellow">Xem Ds Học Sinh Giảng Dạy</button>
+                    </a>
+                </td>
+
+                <td>
+                <a href="#">
+                        <button style="background-color:yellow">Cập Nhật Giáo Viên</button>
                     </a>
                 </td>
                 <td>
-                    <a href="{{route('hocsinhs.delete',['id' => $hs->id])}}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">
+                    <a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">
                         <button style="background-color:red">Xóa</button>
                     </a>
                 </td>

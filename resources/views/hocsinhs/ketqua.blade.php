@@ -18,7 +18,7 @@
                 <th rowspan="1">Điểm 15 phút</th>
                 <th rowspan="1">Điểm 1 tiết</th>
                 <th rowspan="1">Điểm học kì</th>
-                <th rowspan="1">Điểm Trung bình</th>
+                <th rowspan="1">Điểm Trung bình môn</th>
             </tr>
             @foreach($ketquas as $kq)
             <tr >
