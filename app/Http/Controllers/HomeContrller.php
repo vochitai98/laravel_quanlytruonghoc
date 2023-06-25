@@ -97,4 +97,10 @@ class HomeContrller extends Controller
         $hocsinh = $this->hocsinh->getHocSinhByID($id_hocsinh);
         return view('hocsinhs.ketqua',compact('ketquas','hocsinh'));
     }
+    public function ketqua(Request $request){
+        $id_hocsinh = $request->id;
+        $ketquas= $this->hocsinh->ketquaHocSinh($id_hocsinh);
+        $hocsinh = $this->hocsinh->getHocSinhByID($id_hocsinh);
+        return response()->json($ketquas);
+    }
 }

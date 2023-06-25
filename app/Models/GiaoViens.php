@@ -24,4 +24,15 @@ class GiaoViens extends Model
         $ketquas= DB::update('UPDATE ketquas SET diemmieng = ?,diem15phut = ?, diem1tiet = ?,diemhocky = ? WHERE id=?',$data);
         return 'ok';
     }
+    public function getAllHocSinhGioi(){
+        $hocSinhGioiList = DB::select('SELECT k.*,hs.name
+        FROM (
+        SELECT  kq.id_hocsinh,AVG(diemtrungbinh) AS diemtrungbinh
+        FROM (SELECT *,(diemmieng+diem15phut+diem1tiet*2+diemhocky*3)/7 AS diemtrungbinh FROM ketquas) AS kq 
+        GROUP BY id_hocsinh
+        HAVING AVG(diemtrungbinh) > 8 AND MIN(diemtrungbinh) >= 6 AND MAX(diemtrungbinh) > 8    
+        )AS k
+        INNER JOIN hocsinhs AS hs ON k.id_hocsinh = hs.id');
+        return $hocSinhGioiList;
+    }
 }

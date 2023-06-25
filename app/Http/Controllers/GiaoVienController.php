@@ -59,4 +59,9 @@ class GiaoVienController extends Controller
         return redirect()->route('giaoviens.listhocsinh',['id'=>$id_cb])->with('msg', 'Cập nhật điểm thành công.');
         
     }
+    //get danh sach hoc sinh gioi
+    public function getAllHocSinhGioi(){
+        $hocSinhGioiList = $this->giaovien->getAllHocSinhGioi();
+        return response()->json($hocSinhGioiList);
+    }
 }

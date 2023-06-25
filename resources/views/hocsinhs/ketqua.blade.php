@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kết Quả</title>
+    <title>Thông tin chi tiết điểm</title>
 </head>
 <body>
+    <h1 style="text-align: center">Thông tin điểm</h1>
 @foreach($hocsinh as $hs)
-<h2>{{$hs->name}}</h2>
+<h2>Họ tên : {{$hs->name}}</h2>
 <div>Lớp : {{$hs->id_lop}}</div>
 <div>Mã học sinh : {{$hs->id}}</div>
 @endforeach
@@ -31,5 +32,6 @@
             </tr>
             @endforeach
         </table>
+        <button type="button"><a href="{{route('hocsinhs.home')}}">Back</a></button>
 </body>
 </html>

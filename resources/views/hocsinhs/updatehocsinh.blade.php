@@ -37,9 +37,9 @@
     @error('sdt')
     <span style = "color:red">{{$message}}</span>
     @enderror
-
     <button type="submit">Submit</button>
     <button type="button"><a href="{{route('hocsinhs.home')}}">Back</a></button>
+    @endforeach
 </form>
 </body>
 </html>

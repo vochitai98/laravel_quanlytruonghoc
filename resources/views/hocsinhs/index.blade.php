@@ -40,6 +40,11 @@
                 <td>{{$hs->email}}</td>
                 <td>{{$hs->sdt}}</td>
                 <td>
+                <a href="{{route('hocsinhs.ketqua',['id' => $hs->id])}}">
+                        <button style="background-color:yellow">Xem điểm</button>
+                    </a>
+                </td>
+                <td>
                 <a href="{{route('hocsinhs.update',['id' => $hs->id])}}">
                         <button style="background-color:yellow">Cập Nhật</button>
                     </a>
